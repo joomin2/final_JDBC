@@ -1,0 +1,3 @@
+rootProject.name = 'jdbc5'
+include 'jdbc0927'
+
