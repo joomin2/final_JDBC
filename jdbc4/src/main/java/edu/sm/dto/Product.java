@@ -21,5 +21,4 @@ public class Product {
     private int price;
     private LocalDate regdate;
 
-
 }

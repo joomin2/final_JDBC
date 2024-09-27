@@ -14,4 +14,27 @@ public class Sql {
     public static String selectOneProduct = "SELECT * FROM product WHERE id = ?";
     public static String deleteProduct = "DELETE FROM product WHERE id = ?";
     public static String updateProduct = "UPDATE product SET name = ?,price = ?,regdate = sysdate()  WHERE id = ?";
+
+    public static String insertCart = "INSERT INTO cart (member_id, item_id, quantity) VALUES (?, ?, ?)";
+    public static String selectOneCart =
+            "SELECT c.cart_id, c.member_id, c.item_id, c.quantity, " +
+                    "i.name AS item_name, i.price AS item_price " +
+                    "FROM cart c " +
+                    "JOIN item i ON c.item_id = i.item_id " +
+                    "WHERE c.cart_id = ?";
+    public static String selectCartWithItemDetails =
+            "SELECT c.cart_id, c.member_id, c.item_id, c.quantity, " +
+                    "i.name AS item_name, i.price AS item_price " +
+                    "FROM cart c " +
+                    "JOIN item i ON c.item_id = i.item_id";
+    public static String deleteCart = "DELETE FROM cart WHERE cart_id = ?";
+    public static String updateCart = "UPDATE cart SET member_id = ?, item_id = ?, quantity = ? WHERE cart_id = ?";
+
+
+    public static String selectCartByMemberId =
+            "SELECT c.cart_id, c.member_id, c.item_id, c.quantity, i.name AS item_name, i.price AS item_price " +
+                    "FROM cart c " +
+                    "JOIN item i ON c.item_id = i.item_id " +
+                    "WHERE c.member_id = ?";
+
 }
